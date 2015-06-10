@@ -1,12 +1,88 @@
-body { color: #000; }
-
-.ui-dialog-titlebar-close { display: none; }
-.ui-dialog { position: static !important; }
-.contact {
-    margin: 10px;
-    list-style-type: none;
+#wrapper header, #wrapper footer {
+    height: 50px;
+    background-color: #8178A6;
 }
 
+#wrapper header {
+    text-align: center;
+    line-height: 49px;
+    font-size: larger;
+}
 
+#wrapper #content > div {
+    float: left;
+}
 
+#wrapper #content #main {
+    width: 50%;
+}
 
+#wrapper #content #main .contactdata th {
+    background: #cc8;
+    font: 14px bold helvetica;
+}
+
+#wrapper #content #main .contactdata tr {
+    padding: 3px 0;
+    font: 14px normal helvetica;
+    background: #ffe;
+}
+
+#wrapper #content #main .contactdata tr:nth-child(odd) {
+    background: #eee;
+}
+
+#wrapper #content #leading {
+    width: 20%;
+    padding: 10px;
+}
+
+#wrapper #content #leading .contact {
+    margin: 10px;
+    list-style-type: none;
+    border: #ccc solid 2px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 4px 0 0 5px rgba(163, 36, 36, 0.2);
+}
+
+#wrapper #content #leading .contact li {
+    margin-top: 10px;
+}
+
+#wrapper #content #trailing {
+    width: 20%;
+    padding: 10px;
+    margin-left: 100px;
+}
+
+#wrapper #content #trailing label {
+    display: block;
+    font: bold .8em/1.2 Arial, sans-serif;
+}
+
+#wrapper #content #trailing input[type="text"] {
+    display: block;
+    margin-bottom: 15px;
+    width: 283px;
+}
+
+.clear-fix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+body {
+    color: #000;
+}
+
+.ui-dialog-titlebar-close {
+    display: none;
+}
+
+.ui-dialog {
+    position: static !important;
+}
+
+/*# sourceMappingURL=contacts.css.map */
