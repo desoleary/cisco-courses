@@ -1,0 +1,190 @@
+//colors
+$black: #000;
+$color_lochmara_approx: rgb(0, 125, 195);
+$black_50: hsla(0, 0%, 0%, 0.5);
+$color_fun_green_approx: #073;
+$color_deep_teal_approx: #033;
+$color_ivory_approx: #ffe;
+$color_pine_glade_approx: #cc8;
+$color_gallery_approx: #eee;
+$blue: #00f;
+$color_tapa_approx: #777;
+$black_60: hsla(0,0%, 0%, 0.6);
+$color_hunter_green_approx: hsl(140, 10%, 10%);
+$color_emerald_50_approx: hsla(140, 50%, 50%, 0.5);
+$yellow: #ffff00;
+
+//fonts
+$font_0: Arial;
+$font_1: normal helvetica;
+$font_2: bold helvetica;
+$font_3: italic Arial;
+
+//@extend-elements
+//original selectors
+//#leading, #trailing
+%extend_1 {
+  width: 20%;
+  padding: 10px;
+  background-color: $color_lochmara_approx;
+}
+
+
+body {
+  color: $black;
+  font: 13px/1.231 arial,Helvetica;
+}
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+header {
+  height: 100px;
+  background-color: $color_lochmara_approx;
+  position: relative;
+  h1 {
+    font: italic 44px $font_0;
+    margin: 0;
+    text-align: center;
+    color: $black_50;
+    background-color: hsla(0,0%, 0, 0);
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+  }
+}
+footer {
+  height: 100px;
+  background-color: $color_lochmara_approx;
+}
+#content {
+  zoom: 1;
+  background-color: $color_lochmara_approx;
+  &:after {
+    clear: both;
+    display: block;
+    content: '';
+  }
+}
+#leading {
+  float: left;
+  @extend %extend_1;
+}
+#main {
+  float: left;
+  width: 50%;
+}
+#trailing {
+  float: left;
+  @extend %extend_1;
+}
+#contactDetails {
+  width: 85%;
+  margin: 0 auto;
+  font: normal 16px $font_0;
+  label {
+    display: block;
+    width: 90%;
+  }
+  input[type="text"] {
+    display: block;
+    width: 90%;
+    margin-bottom: 15px;
+    padding: 3px;
+    font-size: 16px;
+  }
+  input[type="button"] {
+    font: bold 11px $font_0;
+    padding: 2px;
+  }
+}
+.ui-dialog-titlebar-close {
+  display: none;
+}
+.ui-dialog {
+  position: static !important;
+}
+#results {
+  margin: 5px;
+  border: 1px solid $color_fun_green_approx;
+  //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+  border-radius: 8px;
+  //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 5px 0 5px 5px $color_deep_teal_approx;
+  display: none;
+}
+.contact {
+  margin: 20px;
+  list-style-type: none;
+  border: 1px solid $black;
+  padding: 5px;
+  li {
+    padding: 3px 0;
+    font: 14px $font_1;
+    background: $color_ivory_approx;
+  }
+}
+.contactdata {
+  border: 1px solid $black;
+  margin: 20px 0;
+  th {
+    background: $color_pine_glade_approx;
+    font: 14px $font_2;
+  }
+  tr {
+    padding: 3px 0;
+    font: 14px $font_1;
+    background: $color_ivory_approx;
+    &:nth-child(odd) {
+      background: $color_gallery_approx;
+    }
+  }
+}
+#contactSearch {
+  border-radius: 12px;
+  background-image: linear-gradient(to bottom, #444444, #CBD7FA);
+  box-shadow: 22px 20px 30px 0px #090101;
+
+  border: 3px solid $blue;
+  position: absolute;
+  display: none;
+  width: 500px;
+  height: 150px;
+  padding: 15px;
+  left: -1000px;
+  z-index: 1001;
+  a {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+  }
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: $black_60;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+}
+#searchBtnContainer {
+  margin-bottom: 20px;
+}
+#searchBtn {
+  display: block;
+  text-align: center;
+  padding-top: 15px;
+  text-decoration: none;
+  font: 16px $font_3;
+  margin: 5px auto;
+  width: 140px;
+  height: 35px;
+  border: 1px solid $color_hunter_green_approx;
+  background-color: $color_emerald_50_approx;
+  color: $yellow;
+  //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 3px 3px 0 $black;
+  cursor: pointer;
+}
