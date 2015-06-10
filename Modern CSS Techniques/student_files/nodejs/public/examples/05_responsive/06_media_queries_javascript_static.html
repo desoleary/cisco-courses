@@ -1,0 +1,36 @@
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Using JavaScript to Perform Media Queries</title>
+
+		<style>
+            article {
+                text-decoration: underline;
+            }
+        </style>
+
+        <script src="../../libs/jquery.js"></script>
+        <script>
+
+            $(function(){
+                if (window.matchMedia) {
+                    var watch = matchMedia('screen and (min-width: 600px)'),
+                        item    = $('article.lead');
+                    if (watch.matches)
+                        item.css('color', 'red');
+                    else
+                        item.css('color','blue');
+                }
+            });
+        </script>
+	
+	</head>
+
+	<body>
+		<article class="lead">
+			Some text to display
+		</article>
+	</body>
+</html>

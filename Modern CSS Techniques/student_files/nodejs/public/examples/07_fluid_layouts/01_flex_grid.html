@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Responsive Grid Example</title>
+		<link href="../../libs/css/reset.css" rel="stylesheet" type="text/css">
+
+        <script src="../../libs/modernizr.js"></script>
+
+		<style>
+
+            /* this is the grid, it would
+               normally go in another file, but is placed here for ease of viewing */
+            [class*='col-'] {
+                float: left;
+            }
+
+            [class*='col-']:last-of-type {   /* make last col float right instead */
+                float: right;
+            }
+
+            .grid:after {
+                content: '';
+                display: table;
+                clear: both;
+            }
+
+            .col-1  { width: 8.33333333%;  }
+            .col-2  { width: 16.66666667%; }
+            .col-3  { width: 25%; }
+            .col-4  { width: 33.33333333%; }
+            .col-5  { width: 41.66666667%; }
+            .col-6  { width: 50%;}
+            .col-7  { width: 58.33333333%; }
+            .col-8  { width: 66.66666667%; }
+            .col-9  {width: 75%;}
+            .col-10 { width: 83.33333333%; }
+            .col-11 { width: 91.66666667%; }
+            .col-12 {width: 100%;}
+
+            @media screen and (max-width: 480px) {
+                .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+                .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 { width: 100%; }
+            }
+
+            /* page-specific CSS for visual purposes */
+            div { background-color: #dff0d8; }
+            #row1, #row2, #row3, #row4 { border: 1px solid #b22222; }
+            div > div { line-height: 50px; height: 50px; text-align: center; }
+				
+		</style>
+	
+	</head>
+
+	<body>
+        <div id="row1" class="grid">
+            <div class="col-12">one</div>
+        </div>
+        <div id="row2" class="grid">
+            <div class="col-6">two</div>
+            <div class="col-6">two</div>
+        </div>
+        <div id="row3" class="grid">
+            <div class="col-4">three</div>
+            <div class="col-4">three</div>
+            <div class="col-4">three</div>
+        </div>
+        <div id="row4" class="grid">
+            <div class="col-3">four</div>
+            <div class="col-3">four</div>
+            <div class="col-3">four</div>
+            <div class="col-3">four</div>
+        </div>
+	</body>
+</html>

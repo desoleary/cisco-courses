@@ -1,0 +1,12 @@
+body { color: #000; }
+
+.ui-dialog-titlebar-close { display: none; }
+.ui-dialog { position: static !important; }
+.contact {
+    margin: 10px;
+    list-style-type: none;
+}
+
+
+
+

@@ -1,0 +1,18 @@
+<table class="contactdata">
+    <tr>
+        <th>Contact Id</th><th class="name">Name</th>
+        <th class="addr">Address</th><th class="phone_num">Phone Num</th>
+        <th>Phone Type</th><th>Email</th><th class="company">Company</th>
+        <th>Job Title</th>
+    </tr>
+    {{#each contactdata}}
+        <tr><td>{{contactid}}</td>
+            <td>{{name}}</td>
+            <td>{{address}}</td>
+            <td>{{phone_num}}</td>
+            <td>{{phone_type}}</td>
+            <td>{{email}}</td>
+            <td>{{company}}</td>
+            <td>{{position}}</td></tr>
+    {{/each}}
+</table>

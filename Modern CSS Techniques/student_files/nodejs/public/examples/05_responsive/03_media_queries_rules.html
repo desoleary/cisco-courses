@@ -1,0 +1,32 @@
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Media Queries Specificity</title>
+
+		<style>
+
+            article {
+                text-decoration: underline;
+            }
+
+            article.lead {
+                color: red;
+            }
+
+			@media screen and (max-width: 600px) {
+				.lead {
+                    color: blue;
+                }
+			}
+
+		</style>
+	
+	</head>
+	<body>
+		<article class="lead">
+			Some text to display
+		</article>
+	</body>
+</html>

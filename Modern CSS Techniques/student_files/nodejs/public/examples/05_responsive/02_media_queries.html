@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<title>Media Queries Example</title>
+		<link href="../../libs/css/reset.css" rel="stylesheet" type="text/css">
+		<style>
+			#wrapper { width: 80%; margin: 10px auto; max-width: 1200px; min-width: 600px; background-color: #fcc;}
+			#main {margin-left: 200px; background-color: #ccc; }
+			#sidebar { width: 200px; float: left; background-color: #fcc; } 
+			  
+			.spanel {
+				height: 170px; 
+				margin: 10px auto;
+				border: 2px solid #000;
+				border-radius: 15px; 
+				box-shadow: 5px 5px 0 0 #777;
+			}
+			
+			#s1 { width: 80%; background-color: #732; }
+			#s2 { width: 40%; background-color: #327; }
+			#s3 { width: 60%; background-color: #273; }
+			
+			#main div {
+				margin: 10px auto;
+				border: 2px solid #000;
+				border-radius: 15px; 
+				box-shadow: 5px 5px 0 0 #777;
+			}
+			
+			#m2:after { content: ''; clear: both; display: block; }
+			#m2 { zoom: 1; }
+			
+			.mpanel {
+				float: left;
+				width: 150px;
+				height: 100px;
+				margin: 10px;
+				background-color: #ffc;
+				list-style-type: none;
+				border: 2px solid #000;
+				border-radius: 15px;
+				box-shadow: 5px 5px 0 0 #aaa;
+			}	
+				
+			#m1 { width: 60%; background-color: #a21; height: 100px; }
+			#m2 { width: 80%; background-color: #2a1; }
+			#m3 { width: 30%; background-color: #12a; height: 100px; }
+			
+			
+			@media screen and (max-width: 600px) {
+				  #wrapper { width: 570px; margin: 0 auto; }
+				  #main { margin-left: 0; width: 90%; }
+				  #sidebar { width: 90%; float: none; }
+			}
+				
+		</style>
+	
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div id="sidebar">sidebar section
+			
+				<div id="s1" class="spanel"></div>
+	    		<div id="s2" class="spanel"></div>
+	    		<div id="s3" class="spanel"></div>
+				
+			</div>
+			<div id="main">main section
+			
+				<div id="m1"></div>
+	    		<div id="m2">
+	    			<ul>
+	    				<li class="mpanel"></li>
+	    				<li class="mpanel"></li>
+	    				<li class="mpanel"></li>
+	    				<li class="mpanel"></li>
+	    				<li class="mpanel"></li>
+	    			</ul>
+	    		</div>
+	    		<div id="m3"></div>
+			</div>
+		</div>
+
+	</body>
+</html>

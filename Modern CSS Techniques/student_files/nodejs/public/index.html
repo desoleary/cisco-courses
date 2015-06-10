@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="libs/css/reset.css" type="text/css" rel="stylesheet" >
+        <script type="text/javascript" src="libs/jquery.js"></script>
+        <script src="libs/jquery-ui.js"></script>
+        <script src="libs/handlebars.js"></script>
+        <link href="libs/jqueryui-themes/themes/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet">
+
+        <style type="text/css">
+            body, html, div#wrapper { font: 13px normal Arial; width:100%; height:100%; margin:0; overflow:hidden; }
+            #topmenu { height: 100%; overflow: auto; }
+            ul { list-style-type: none; }
+            h3 { font-size: 16px; background-color: #fdf5ce; padding: 10px; }
+        </style>
+
+        <script type="text/javascript">
+            $(function(){
+
+                var dataDeferred        = $.ajax({url: '/libs/data/links.data', dataType: 'json'}),
+                    linkTplDeferred     = $.ajax({url: '/libs/data/tmpl/main_tpl.hbs', dataType:'html'}),
+                    simpleTplDeferred     = $.ajax({url: '/libs/data/tmpl/simple_tpl.hbs', dataType:'html'}),
+                    targetTplDeferred   = $.ajax({url: '/libs/data/tmpl/target_tpl.hbs', dataType:'html'});
+
+                $.when(dataDeferred, linkTplDeferred, simpleTplDeferred, targetTplDeferred).then(
+                    function(data, linkTpl, simpleTpl, targetTpl){
+                        var tpl1 = Handlebars.compile(linkTpl[0]),
+                            tpl3 = Handlebars.compile(simpleTpl[0]),
+                            tpl2 = Handlebars.compile(targetTpl[0]);
+
+                        $(data[0].links.examples).each(function(idx, chapter){
+                             $(chapter.items).each(function(idx, item){
+                                 item.location = chapter.location;
+                                 $('div#tab1 ul').append(tpl3(item));
+                             });
+                        });
+
+                        $(data[0].links.labs).each(function(idx, item){
+                            $('div#tab2 ul').append(tpl1(item));
+                        });
+
+                        $(data[0].links.other).each(function(idx, item){
+                            $('div#tab3 ul').append(tpl2(item));
+                        });
+
+                        $('#topmenu').tabs({active: 0});
+                    },
+                    function(xhr, status, errMsg){
+                        $('#msgBox').text(errMsg).dialog({title: status});
+                    }
+                );
+
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <h3>Modern CSS Techniques Fast Access Page</h3>
+            <div id="topmenu">
+                <ul>
+                    <li><a href="#tab1">Examples</a></li>
+                    <li><a href="#tab2">Labs</a></li>
+                    <li><a href="#tab3">Other Links</a></li>
+                </ul>
+                <div id="tab1">
+                    <ul></ul>
+                </div>
+                <div id="tab2">
+                    <ul></ul>
+                </div>
+                <div id="tab3">
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+        <div id="msgBox"></div>
+    </body>
+</html>

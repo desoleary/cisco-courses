@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Bootstrap Layout Example 2 -  Two Breakpoints</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link href="../../libs/css/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+    	
+    	<!--[if lt IE 9]>
+        <script src="../../libs/css/bootstrap/assets/js/html5shiv.js"></script>
+        <script src="../../libs/css/bootstrap/assets/js/respond.min.js"></script>
+        <![endif]-->
+    	
+    	<style>
+            body { font-size: 12px; }
+    		header, footer, article { height: 100px; background-color: gainsboro; font-size: 3em; line-height: 100px; }
+    		#container { background-color: #74e; width: 80%; margin: 10px auto; padding: 0;}
+    		#col1 { background-color: papayawhip; }
+            #col2 { background-color: honeydew; }
+            #col3 { background-color: hotpink; }
+    	</style>
+    	
+    	<script src="../../libs/jquery.js"></script>
+    	<script src="../../libs/css/bootstrap/dist/js/bootstrap.js"></script>
+    	
+    </head>
+    <body>
+    <div id="container" class="container">
+        <header class="text-center col-md-12">Column Drop Pattern</header>
+        <section>
+            <article id="col1" class="text-center col-md-4 col-lg-3">col1</article>
+            <article id="col2" class="text-center col-md-8 col-lg-6">col2</article>
+            <article id="col3" class="text-center col-md-12 col-lg-3">col3</article>
+        </section>
+        <footer class="text-center col-md-12">footer</footer>
+    </div>
+    </body>
+</html>

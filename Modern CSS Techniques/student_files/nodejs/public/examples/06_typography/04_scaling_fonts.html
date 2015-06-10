@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Responsive Text</title>
+		<style>
+            html{font-size:18px;}
+
+            @media screen and (orientation:portrait){
+                div.nested{font-size:2rem;}
+            }
+
+            @media screen and (orientation:landscape){
+                div.nested{font-size:1rem;}
+            }
+		</style>
+	</head>
+
+	<body>
+    <div class="main">
+        <div class="nested">
+            Try changing orientations using Firefox Responsive Design View
+        </div>
+    </div>
+	</body>
+</html>

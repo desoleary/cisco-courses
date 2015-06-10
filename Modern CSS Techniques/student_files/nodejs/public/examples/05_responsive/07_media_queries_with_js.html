@@ -1,0 +1,86 @@
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Media Queries + JavaScript</title>
+
+        <link type="text/css" rel="stylesheet" href="../../libs/css/reset.css">
+
+		<style>
+
+            nav ul li span {
+                background-color: #ffc73d;
+                border: 1px solid #aa5522;
+                padding: 5px;
+                display: block;
+            }
+
+            .products li {
+                float: left;
+                width: 50%;
+            }
+
+            @media screen and (min-width: 600px)  {
+                .products li {
+                    width: 33.3333332%;
+                }
+            }
+
+            @media screen and (min-width: 800px)  {
+                .products li {
+                    width: 16.6666667%;
+                }
+            }
+
+		</style>
+
+        <script type="text/javascript" src="../../libs/jquery.js"></script>
+        <script type="text/javascript">
+            var LayoutMgr = {
+                doLayout: function() {
+                    var body = $('body'), width = $(document).width(),
+                        li2 = $('.products li:nth-child(2)', '#main-nav'),
+                        li5 = $('.products li:nth-child(5)', '#main-nav'),
+                        li6 = $('.products li:nth-child(6)', '#main-nav');
+
+                    if(width !== this.lastWidth) {
+                        var bodyClass = 'narrow';
+                        if(width > 800) {
+                            bodyClass = 'wide';
+                        }
+                        else if(width >= 600 && width <= 800 && bodyClass !== 'medium') {
+                            bodyClass = 'medium';
+                            li2.before(li5);
+                            li6.before(li2);
+                        }
+
+                        body.removeClass();
+                        body.addClass(bodyClass);
+                        this.lastWidth = width;
+                    }
+                },
+                lastWidth: null
+            };
+
+            $(window).load(LayoutMgr.doLayout);
+            $(window).resize(LayoutMgr.doLayout);
+
+        </script>
+
+	</head>
+
+	<body>
+		<nav id="main-nav">
+			<ul class="products">
+                <li><span>Item 1</span></li>
+                <li><span>Item 2</span></li>
+                <li><span>Item 3</span></li>
+                <li><span>Item 4</span></li>
+                <li><span>Item 5</span></li>
+                <li><span>Item 6</span></li>
+			</ul>
+		</nav>
+
+	</body>
+</html>

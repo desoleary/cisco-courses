@@ -1,0 +1,116 @@
+{
+    "links" : {
+		"examples" : [
+		    {
+		          "unit" : 3,
+		          "title": "Basic CSS",
+		          "location": "examples/03_css",
+		          "items" : [
+		                { "text": "Floating Example 0", "href": "floating/floating0.html" },
+		                { "text": "Floating Example 1", "href": "floating/floating1.html" },
+		                { "text": "Floating Example 2", "href": "floating/floating2.html" },
+		                { "text": "Floating Example 3", "href": "floating/floating3.html" },
+		                { "text": "Floating Example 4", "href": "floating/floating4.html" },
+		                { "text": "Background Property Example", "href": "bgnd_prop.html" }
+		          ]
+		    },
+		    {
+                  "unit" : 5,
+                  "title": "Responsive Solutions",
+                  "location": "examples/05_responsive",
+                  "items" : [
+                        { "text": "Responsive Design: Static Solution", "href": "01_responsive_design_static_content.html" },
+                        { "text": "Media Queries", "href": "02_media_queries.html" },
+                        { "text": "Media Queries Rules", "href": "03_media_queries_rules.html" },
+                        { "text": "Media Queries Rules Again", "href": "03b_media_queries_rules.html" },
+                        { "text": "Media Queries - Mobile First", "href": "04_media_queries_mobile_first.html" },
+                        { "text": "Media Queries Evolving", "href": "05_media_queries_evolving.html" },
+                        { "text": "Media Queries JavaScript Static", "href": "06_media_queries_javascript_static.html" },
+                        { "text": "Media Queries JavaScript Listener", "href": "06b_media_queries_javascript_listener.html" },
+                        { "text": "Media Queries with JavaScript", "href": "07_media_queries_with_js.html" },
+                        { "text": "Responsive Tables", "href": "08_tables.html" }
+                  ]
+            },
+            {
+                  "unit" : 6,
+                  "title": "Typography and Images",
+                  "location": "examples/06_typography",
+                  "items" : [
+                        { "text": "Issues with Relative Units", "href": "01_relative_unit_issues.html" },
+                        { "text": "Using REMs", "href": "02_rems.html" },
+                        { "text": "Viewport Units", "href": "03_viewport_units.html" },
+                        { "text": "Scaling Fonts", "href": "04_scaling_fonts.html" },
+                        { "text": "Responsive Images", "href": "05_responsive_images.html" },
+                        { "text": "Adaptive and Scalable Images", "href": "06_adaptive_scalable_images.html" },
+                        { "text": "Text Size Adjust", "href": "07_text_size_adjust.html" },
+                        { "text": "Object Fit", "href": "08_object_fit.html" }
+                  ]
+             },
+             {
+                  "unit" : 7,
+                  "title": "Fluid Layouts",
+                  "location": "examples/07_fluid_layouts",
+                  "items" : [
+                        { "text": "Flex Grid Example", "href": "01_flex_grid.html" },
+                        { "text": "Flex Box Example", "href": "02_flexbox.html" },
+                        { "text": "Flex Box Example 2", "href": "03_more_flexbox.html" },
+                        { "text": "Bootstrap Example", "href": "04_bootstrap.html" },
+                        { "text": "Bootstrap Example 2", "href": "05_bootstrap_layout2.html" }
+                  ]
+             },
+             {
+                  "unit" : 8,
+                  "title": "CSS Pre-processing",
+                  "location": "examples/08_preprocess",
+                  "items" : [
+                        { "text": "Emp.css after SASS Compile", "href": "sass/emp.css" },
+                        { "text": "Emp.scss before SASS Compile", "href": "sass/sass/emp.scss" },
+                        { "text": "Main.css after LESS Compile", "href": "main.css" },
+                        { "text": "Main.less before LESS Compile", "href": "main.less" }
+
+                  ]
+             }
+		],
+
+		"labs" : [
+          { "text": "Lab 2 - Floating (starter - HTML)",                        "href": "labs/lab02/starter/lab02.html" },
+		  { "text": "Lab 2 - Floating (starter - CSS)",                         "href": "labs/lab02/starter/lab02.css" },
+		  { "text": "Lab 2 - Floating (solution - HTML)",                       "href": "labs/lab02/solution/lab02_solution.html" },
+		  { "text": "Lab 2 - Floating (solution - CSS)",                        "href": "labs/lab02/solution/lab02_solution.css" },
+
+          { "text": "Lab 3 - Clearing (starter - HTML)",                        "href": "labs/lab03/starter/lab03.html" },
+		  { "text": "Lab 3 - Clearing (starter - CSS)",                         "href": "labs/lab03/starter/lab03.css" },
+		  { "text": "Lab 3 - Clearing (solution - HTML)",                       "href": "labs/lab03/solution/lab03_solution.html" },
+		  { "text": "Lab 3 - Clearing (solution - CSS)",                        "href": "labs/lab03/solution/lab03_solution.css" },
+
+		  { "text": "Lab 4 - Multi-column Layout (index.html starter)",     "href": "labs/lab04/starter/index.html" },
+		  { "text": "Lab 4 - Multi-column Layout (index.html solution)",         "href": "labs/lab04/solution/index.html" },
+
+		  { "text": "Lab 5 - CSS 3 Dialog (starter)",       "href": "labs/lab05/starter/index.html" },
+		  { "text": "Lab 5 - CSS 3 Dialog (solution)",      "href": "labs/lab05/solution/index.html" },
+
+          { "text": "Lab 6 - Media Queries (starter)",       "href": "labs/lab06/starter/index.html" },
+		  { "text": "Lab 6 - Media Queries (solution)",      "href": "labs/lab06/solution/index.html" },
+
+          { "text": "Lab 6b - Vertical Table (starter)",       "href": "labs/lab06b/starter/index.html" },
+		  { "text": "Lab 6b - Vertical Table (solution)",      "href": "labs/lab06b/solution/index.html" },
+
+          { "text": "Lab 7 - Bootstrap (starter)",       "href": "labs/lab07/starter/index.html" },
+		  { "text": "Lab 7 - Bootstrap (solution)",      "href": "labs/lab07/solution/index.html" },
+
+		  { "text": "Lab 8 - Using LESS (starter)",       "href": "labs/lab08/starter/index.html" },
+          		  { "text": "Lab 8 - Using LESS (solution)",      "href": "labs/lab08/solution/index.html" }
+
+		  ],
+
+		"other" : [
+          { "text": "NodeJS Home",                 "href": "http://nodejs.org" },
+          { "text": "Browser Market Share",        "href": "http://marketshare.hitslink.com" },
+          { "text": "Mozilla Developer Network",   "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+          { "text": "CSS ZenGarden",               "href": "http://www.csszengarden.com" },
+          { "text": "CanIUse.com",                 "href": "http://www.caniuse.com" },
+          { "text": "HTML5 Please",                "href": "http://www.html5please.com" },
+          { "text": "Brackets IDE",                "href": "http://brackets.io" }
+        ]
+	}
+}

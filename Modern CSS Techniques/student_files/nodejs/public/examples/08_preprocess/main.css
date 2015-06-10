@@ -1,0 +1,21 @@
+@media screen and (min-width: 450px) {
+  .headercolor {
+    color: #007722;
+  }
+}
+@media screen and (min-width: 450px) and (min-width: 768px) {
+  .headercolor {
+    color: #009922;
+  }
+}
+@media screen and (min-width: 450px) and (min-width: 960px) {
+  .headercolor {
+    color: #00bb22;
+  }
+}
+#header {
+  color: #007722;
+}
+#header h1 {
+  font-size: 2rem;
+}

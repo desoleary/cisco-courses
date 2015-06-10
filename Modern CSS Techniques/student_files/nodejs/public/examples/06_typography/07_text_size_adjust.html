@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Text Size Adjust</title>
+    <style>
+        html{font-size:18px;}
+
+        div.nested {
+            -moz-text-size-adjust: 150%;
+            -webkit-text-size-adjust: 150%;
+        }
+
+        @media screen and (orientation:landscape){
+            div.nested{ -webkit-text-size-adjust:none; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="main">
+    <div class="nested">
+        This won't show much until better browser support exists for it.  Only iPhones currently support it.
+    </div>
+</div>
+</body>
+</html>

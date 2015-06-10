@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Contact Application</title>
+
+        <link href="../../../libs/css/reset.css" type="text/css" rel="stylesheet" >
+		<link href="../../../libs/jqueryui-themes/themes/overcast/jquery-ui.css" type="text/css" rel="stylesheet">
+		<link href="contacts.css" rel="stylesheet" type="text/css">
+
+        <script src="../../../libs/modernizr.js"></script>
+		<script type="text/javascript" src="../../../libs/require.js"></script>
+		<script src="../../../libs/ejs.js"></script>
+        <script src="../../../libs/handlebars.js"></script>
+	</head>
+	<body>
+        <div id="wrapper">
+            <header><h1>Adv. JavaScript and HTML5</h1></header>
+            <section id="content">
+                <div id="leading">
+                    <div id="results"></div>
+                </div>
+                <div id="main"></div>
+                <div id="trailing">
+                    <div id="contactDetails">
+                        <form id="contactDetailsForm">
+                            <label for="contactidDetails">Contact ID</label>
+                            <input type="text" id="contactidDetails" readonly="readonly">
+                            <label for="nameDetails">Name</label>
+                            <input type="text" id="nameDetails">
+                            <label for="addressDetails">Address</label>
+                            <input type="text" id="addressDetails">
+                            <label for="phonenumDetails">Primary Phone</label>
+                            <input type="text" id="phonenumDetails">
+                            <label for="phonetypeDetails">Type</label>
+                            <input type="text" id="phonetypeDetails">
+                            <label for="emailDetails">Email</label>
+                            <input type="text" id="emailDetails">
+                            <label for="companyDetails">Company</label>
+                            <input type="text" id="companyDetails">
+                            <label for="positionDetails">Job Title</label>
+                            <input type="text" id="positionDetails">
+
+                            <input type="button" value="Create" id="createBtn">
+                            <input type="button" value="Update" id="updateBtn">
+                            <input type="button" value="Delete" id="deleteBtn">
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <footer></footer>
+        </div>
+
+        <div id="contactSearch">
+            <form id="contactSearchForm">
+                <label for="contactid">Contact ID:</label>
+                <input type="text" id="contactid" autofocus>
+                <input type="submit" value="Search">
+                <input type="button" value="Search (XML response)" id="xmlSearch">
+            </form>
+        </div>
+		
+		<script type="text/javascript">
+
+            require({
+                        baseUrl: '/',
+                        paths: {
+                            jquery: 'libs/jquery',
+                            jqueryui: 'libs/jquery-ui',
+                            rest: 'labs/lab04/solution/rest',
+                            contactgrid: 'labs/lab04/solution/contactgrid'
+                        }
+                    },
+                    ['jquery', 'rest', 'contactgrid', 'jqueryui'], function($, RestClient, grid){
+		
+				var url           = '/contact/',
+                    contactSearch = $('#contactSearch'),
+				    tpl           = new EJS({url: './tmpl/contact.ejs'});
+
+                grid.render('#main');
+
+                $('#main').on('click', 'tr', function(){
+                    var data = $(this).children('td');
+                    $('#contactidDetails').val(data.eq(0).text());
+                    $('#nameDetails').val(data.eq(1).text());
+                    $('#addressDetails').val(data.eq(2).text());
+                    $('#phonenumDetails').val(data.eq(3).text());
+                    $('#phonetypeDetails').val(data.eq(4).text());
+                    $('#emailDetails').val(data.eq(5).text());
+                    $('#companyDetails').val(data.eq(6).text());
+                    $('#positionDetails').val(data.eq(7).text());
+                });
+
+                contactSearch.dialog({ id: 'contactSearch', width: 700, draggable: false, resizable: false });
+				
+				$('input[type=submit]').button();
+				$('input[type=button]').button();
+				
+				
+				$('#contactSearchForm').submit(function(evt){
+                    evt.preventDefault();
+					var contactid = $('#contactid').val();
+
+                    if (contactid)
+                        RestClient.retrieve(url + contactid, 'json', handleJson);
+                });
+
+
+				function handleJson(results) {
+					var contactid   = results.contactid, contactInfo = 'No contact found.';
+
+					if(contactid)
+					    contactInfo = tpl.render(results);
+
+					$('#results').append(contactInfo).show();
+				}
+
+
+			
+				$('#xmlSearch').click(function(evt){
+                    evt.preventDefault();
+					var contactid = $('#contactid').val();
+
+                    if (contactid)
+                        RestClient.retrieve(url + contactid, 'xml', handleXml);
+
+                });
+			
+				
+				function handleXml(result) {
+				      var doc = $(result.documentElement), name, address, phones, email, company, position, contactInfo = 'No contact found.';
+				      
+				      if(doc && doc.find('contactid').text()) {
+						    contactid  	= doc.find('contactid').text();
+						    name        = doc.find('name').text();
+						    address     = doc.find('address').text();
+						    ph_num      = doc.find('phones').find('number').text();
+						    ph_type     = doc.find('phones').find('type').text();
+						    email       = doc.find('email').text();
+					        company     = doc.find('company').text();
+						    position    = doc.find('position').text();
+						    
+						    contactInfo = name + ' ' + address + ' Ph: '+ ph_num + ' ' + ph_type;
+						}     
+										
+						$('#results').append('<p>' + contactInfo + '</p>');
+				}
+
+
+                $('#deleteBtn').click(function(evt){
+                    evt.preventDefault();
+                    var contactid = $('#contactidDetails').val();
+                    if (contactid.length > 0)
+                        RestClient.del(url+contactid, function(){ grid.render('#main'); });
+                });
+
+                $('#updateBtn').click(function(evt){
+                    evt.preventDefault();
+                    var contactid = $('#contactidDetails').val(),
+                            name = $('#nameDetails').val(),
+                            address = $('#addressDetails').val(),
+                            phone_num = $('#phonenumDetails').val(),
+                            phone_type  = $('#phonetypeDetails').val(),
+                            email =  $('#emailDetails').val(),
+                            company = $('#companyDetails').val(),
+                            position = $('#positionDetails').val(),
+
+                            params = {name: name, address: address, phone_num: phone_num,
+                                phone_type: phone_type, email:email, company:company,
+                                position:position};
+
+                    RestClient.update(url + contactid, params, function(){ grid.render('#main'); });
+                });
+
+
+                $('#createBtn').click(function(evt){
+                    evt.preventDefault();
+                    var contactid = $('#contactidDetails').val(),
+                            name = $('#nameDetails').val(),
+                            address = $('#addressDetails').val(),
+                            phone_num = $('#phonenumDetails').val(),
+                            phone_type  = $('#phonetypeDetails').val(),
+                            email =  $('#emailDetails').val(),
+                            company = $('#companyDetails').val(),
+                            position = $('#positionDetails').val(),
+
+                            params = {name: name, address: address, phone_num: phone_num,
+                                phone_type: phone_type, email:email, company:company,
+                                position:position};
+
+                    RestClient.insert(url, params, function(results){
+                        grid.render('#main');
+                        if (results.created) $('#contactidDetails').val(results.created);
+                    });
+                });
+            });
+			
+		</script>
+	</body>
+</html>

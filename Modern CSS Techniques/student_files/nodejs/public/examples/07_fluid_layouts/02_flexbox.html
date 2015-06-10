@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Flexbox Example</title>
+		<link href="../../libs/css/reset.css" rel="stylesheet" type="text/css">
+
+        <script src="../../libs/modernizr.js"></script>
+
+		<style>
+
+            body { font: 12px normal Arial; }
+
+            #box1, #box2 {
+                width: 50%;
+                height: 200px;
+                font-size: 3rem;
+                line-height: 200px;
+                text-align: center;
+
+            }
+            #box1 { background-color: papayawhip; }
+            #box2 { background-color: honeydew; }
+
+            #flexcontainer {
+                width: 80%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: row-reverse;
+            }
+				
+		</style>
+	
+	</head>
+
+	<body>
+        <div id="flexcontainer">
+            <div id="box1">
+                box1
+            </div>
+            <div id="box2">
+                box2
+            </div>
+        </div>
+	</body>
+</html>

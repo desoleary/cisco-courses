@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Scalable and Adaptive Images Using ResponseJS</title>
+		<link href="../../libs/css/reset.css" rel="stylesheet" type="text/css">
+
+		<style>
+
+            #main-article {
+                margin: 10% auto;
+                width: 80%;
+                border: 1px solid black;
+                zoom: 1;
+            }
+
+            #main-article:after {       /* clearfix */
+                clear: both;
+                content: '';
+                display: block;
+            }
+
+            .article-info {
+                float: left;
+                width: 47%;
+                padding: 5px;
+            }
+
+            section.details {
+                float: left;
+                width:50%;
+            }
+
+            img.scale {
+                max-width: 100%;
+                height: auto;
+            }
+
+		</style>
+
+        <script src="../../libs/jquery.js"></script>
+        <script src="../../libs/modernizr.js"></script>
+
+	</head>
+
+    <body data-responsejs='{ "create": [ { "breakpoints": [641], "mode": "src", "prefix": "src" } ]}'>
+        <article id="main-article">
+            <p class="article-info">
+                In Amsterdam, bikes outnumber cars!  You must take extra
+                precaution when walking--paying particular attention to oncoming traffic.
+                But this traffic is found on the sidewalks and bike paths!
+            </p>
+            <section class="details" >
+                <img class="scale" src="amsterdam_lo.jpg" data-src641="amsterdam_hi.jpg" alt="bikes">
+                <p>A Sea of Bikes</p>
+             </section>
+        </article>
+
+        <script src="../../libs/response.js"></script>
+
+	</body>
+</html>

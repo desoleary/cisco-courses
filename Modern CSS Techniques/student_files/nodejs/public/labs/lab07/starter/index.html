@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Contact Application</title>
+
+        <!-- Step 1. add a link to bootstrap.css in your libs directory -->
+        <!-- Step 2. add classes to the HTML below (primarily the leading, main, and trailing divs
+                     to generate the column drop effect.  Refer to class materials for bootstrap class
+                     column notation and possible values.
+        -->
+
+		<link href="../../../libs/jqueryui-themes/themes/overcast/jquery-ui.css" type="text/css" rel="stylesheet">
+		<link href="contacts.css" rel="stylesheet" type="text/css">
+
+        <style type="text/css">
+
+            @media screen and (min-width: 768px) and (max-width: 1200px) {
+                #leading, #trailing { width: 45%; float: left; }
+                #main { float: none; clear: both; width: auto; }
+                .contactdata { margin: 0 auto; }
+            }
+
+            @media screen and (max-width: 768px) {
+                #leading, #trailing, #main { width: 95%; float: none; }
+                .contactdata { margin: 0 auto; }
+                .contactdata, .contactdata tbody, .contactdata td, .contactdata tr { display: block; }
+                .contactdata tr { border: 1px solid #ccc; }
+                .contactdata tr th { display: none; }
+                .contactdata td {
+                    border: none;
+                    border-bottom: 1px solid #eee;
+                    position: relative;
+                    padding-left: 50%;
+                }
+                .contactdata td:before {
+                    position: absolute;
+                    top: 0;
+                    left: 6px;
+                    width: 45%;
+                    white-space: nowrap;
+                }
+                .contactdata td:nth-of-type(1):before { content: "Contact ID"; }
+                .contactdata td:nth-of-type(2):before { content: "Name"; }
+                .contactdata td:nth-of-type(3):before { content: "Address"; }
+                .contactdata td:nth-of-type(4):before { content: "Phone Num"; }
+                .contactdata td:nth-of-type(5):before { content: "Phone Type"; }
+                .contactdata td:nth-of-type(6):before { content: "Email"; }
+                .contactdata td:nth-of-type(7):before { content: "Company"; }
+                .contactdata td:nth-of-type(8):before { content: "Position"; }
+            }
+
+
+        </style>
+
+
+        <script src="../../../libs/modernizr.js"></script>
+		<script type="text/javascript" src="../../../libs/require.js"></script>
+		<script src="../../../libs/ejs.js"></script>
+        <script src="../../../libs/handlebars.js"></script>
+	</head>
+	<body>
+        <div id="wrapper">
+            <header><h1>Adv. JavaScript and HTML5</h1></header>
+            <section id="content">
+                <div id="leading">
+                    <div id="searchBtnContainer">
+                        <a id="searchBtn">Contact Search</a>
+                    </div>
+                    <div id="results"></div>
+                </div>
+                <div id="main"></div>
+                <div id="trailing">
+                    <div id="contactDetails">
+                        <form id="contactDetailsForm">
+                            <label for="contactidDetails">Contact ID</label>
+                            <input type="text" id="contactidDetails" readonly="readonly">
+                            <label for="nameDetails">Name</label>
+                            <input type="text" id="nameDetails">
+                            <label for="addressDetails">Address</label>
+                            <input type="text" id="addressDetails">
+                            <label for="phonenumDetails">Primary Phone</label>
+                            <input type="text" id="phonenumDetails">
+                            <label for="phonetypeDetails">Type</label>
+                            <input type="text" id="phonetypeDetails">
+                            <label for="emailDetails">Email</label>
+                            <input type="text" id="emailDetails">
+                            <label for="companyDetails">Company</label>
+                            <input type="text" id="companyDetails">
+                            <label for="positionDetails">Job Title</label>
+                            <input type="text" id="positionDetails">
+
+                            <input type="button" value="Create" id="createBtn">
+                            <input type="button" value="Update" id="updateBtn">
+                            <input type="button" value="Delete" id="deleteBtn">
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <footer></footer>
+        </div>
+
+        <div id="contactSearch">
+            <form id="contactSearchForm">
+                <label for="contactid">Contact ID:</label>
+                <input type="text" id="contactid" autofocus>
+                <input type="submit" value="Search">
+                <input type="button" value="Search (XML response)" id="xmlSearch">
+                <a id="cancelSearch" href="#">Cancel</a>
+            </form>
+        </div>
+        <div id="overlay" class="overlay"></div>
+		
+		<script type="text/javascript">
+
+            require({
+                        baseUrl: '/',
+                        paths: {
+                            jquery: 'libs/jquery',
+                            jqueryui: 'libs/jquery-ui',
+                            rest: 'labs/lab07/solution/rest',
+                            contactgrid: 'labs/lab07/solution/contactgrid',
+                            layoutmgr: 'labs/lab07/solution/layoutmgr'
+                        }
+                    },
+                    ['jquery', 'rest', 'contactgrid', 'layoutmgr', 'jqueryui'], function($, RestClient, grid, layoutmgr){
+		
+				var url           = '/contact/',
+                    contactSearch = $('#contactSearch'),
+				    tpl           = new EJS({url: './tmpl/contact.ejs'});
+
+                function layout1(){ $('#main').insertAfter('#trailing'); }
+                function layout2(){ $('#main').insertAfter('#leading'); }
+                layoutmgr.init(768, 1200, layout2, layout1, layout2);
+
+                grid.render('#main');
+
+                $('#main').on('click', 'tr', function(){
+                    var data = $(this).children('td');
+                    $('#contactidDetails').val(data.eq(0).text());
+                    $('#nameDetails').val(data.eq(1).text());
+                    $('#addressDetails').val(data.eq(2).text());
+                    $('#phonenumDetails').val(data.eq(3).text());
+                    $('#phonetypeDetails').val(data.eq(4).text());
+                    $('#emailDetails').val(data.eq(5).text());
+                    $('#companyDetails').val(data.eq(6).text());
+                    $('#positionDetails').val(data.eq(7).text());
+                });
+
+
+				$('input[type=submit]').button();
+				$('input[type=button]').button();
+				
+				
+				$('#contactSearchForm').submit(function(evt){
+                    evt.preventDefault();
+					var contactid = $('#contactid').val();
+
+                    if (contactid)
+                        RestClient.retrieve(url + contactid, 'json', handleJson);
+                });
+
+
+				function handleJson(results) {
+					var contactid   = results.contactid, contactInfo = 'No contact found.';
+
+					if(contactid)
+					    contactInfo = tpl.render(results);
+
+					$('#results').append(contactInfo).show();
+
+                    close();
+				}
+
+
+			
+				$('#xmlSearch').click(function(evt){
+                    evt.preventDefault();
+					var contactid = $('#contactid').val();
+
+                    if (contactid)
+                        RestClient.retrieve(url + contactid, 'xml', handleXml);
+
+                });
+			
+				
+				function handleXml(result) {
+				      var doc = $(result.documentElement), name, address, phones, email, company, position, contactInfo = 'No contact found.';
+				      
+				      if(doc && doc.find('contactid').text()) {
+						    contactid  	= doc.find('contactid').text();
+						    name        = doc.find('name').text();
+						    address     = doc.find('address').text();
+						    ph_num      = doc.find('phones').find('number').text();
+						    ph_type     = doc.find('phones').find('type').text();
+						    email       = doc.find('email').text();
+					        company     = doc.find('company').text();
+						    position    = doc.find('position').text();
+						    
+						    contactInfo = name + ' ' + address + ' Ph: '+ ph_num + ' ' + ph_type;
+						}     
+										
+						$('#results').append('<p>' + contactInfo + '</p>');
+
+                        close();
+				}
+
+
+                $('#deleteBtn').click(function(evt){
+                    evt.preventDefault();
+                    var contactid = $('#contactidDetails').val();
+                    if (contactid.length > 0)
+                        RestClient.del(url+contactid, function(){ grid.render('#main'); });
+                });
+
+                $('#updateBtn').click(function(evt){
+                    evt.preventDefault();
+                    var contactid = $('#contactidDetails').val(),
+                            name = $('#nameDetails').val(),
+                            address = $('#addressDetails').val(),
+                            phone_num = $('#phonenumDetails').val(),
+                            phone_type  = $('#phonetypeDetails').val(),
+                            email =  $('#emailDetails').val(),
+                            company = $('#companyDetails').val(),
+                            position = $('#positionDetails').val(),
+
+                            params = {name: name, address: address, phone_num: phone_num,
+                                phone_type: phone_type, email:email, company:company,
+                                position:position};
+
+                    RestClient.update(url + contactid, params, function(){ grid.render('#main'); });
+                });
+
+
+                $('#createBtn').click(function(evt){
+                    evt.preventDefault();
+                    var contactid = $('#contactidDetails').val(),
+                            name = $('#nameDetails').val(),
+                            address = $('#addressDetails').val(),
+                            phone_num = $('#phonenumDetails').val(),
+                            phone_type  = $('#phonetypeDetails').val(),
+                            email =  $('#emailDetails').val(),
+                            company = $('#companyDetails').val(),
+                            position = $('#positionDetails').val(),
+
+                            params = {name: name, address: address, phone_num: phone_num,
+                                phone_type: phone_type, email:email, company:company,
+                                position:position};
+
+                    RestClient.insert(url, params, function(results){
+                        grid.render('#main');
+                        if (results.created) $('#contactidDetails').val(results.created);
+                    });
+                });
+
+
+                $('#searchBtn').click(function(evt){
+                    evt.preventDefault();
+                    var body          = $(window),
+                        bodyWidth     = body.width(),
+                        bodyHeight    = body.height(),
+                        contactSearch = $('#contactSearch'),
+                        dialogWidth   = contactSearch.width(),
+                        dialogHeight  = contactSearch.height(),
+                        left          = (bodyWidth - dialogWidth) / 2,
+                        top           = (bodyHeight - dialogHeight) / 2;
+
+                    contactSearch.css('left', left).css('top', top).show();
+                    $('#overlay').show();
+                });
+
+                $('#cancelSearch').click(function(evt){ evt.preventDefault(); close(); });
+                function close() { $('#contactSearch').hide(); $('#overlay').hide(); }
+
+
+            });
+			
+		</script>
+	</body>
+</html>

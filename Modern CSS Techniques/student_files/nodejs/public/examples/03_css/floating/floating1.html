@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<link href="../reset-min.css" type="text/css" rel="stylesheet">
+		<style type="text/css">
+		
+			
+			#wrapper { width: 50%; margin: 20px auto; border: none; }
+			
+			div { border: 1px solid black; padding: 2px; background-color: #E698F9; }
+			
+			#col11, #col21, #col32 { width: 55%; float: left; }
+			#col12, #col22, #col33 { width: 40%; float: left; }
+		
+		
+			// for the rendering only (clearfix) to not specify heights
+			div:after { content: ''; display: block; clear:both; }
+			div {zoom: 1; }
+		</style>
+	</head>
+
+	<body>
+
+		<div id="wrapper">
+		   <div id="header">Header</div>
+		   <div id="col11">
+			   <div  id="col21">
+			   	  <div id="col31"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p></div>
+			      <div id="col32"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p></div>
+			      <div id="col33"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p></div>
+			   </div>
+			   <div  id="col22"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p></div>
+		   </div>
+		   <div id="col12"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p></div>
+		</div>
+
+	</body>
+</html>
