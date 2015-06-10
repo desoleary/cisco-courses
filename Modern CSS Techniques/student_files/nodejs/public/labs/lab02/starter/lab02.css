@@ -1,1 +1,28 @@
-/* purple used is #9999CC */
+#photos {
+    width: 710px;
+}
+
+#photos ul {
+    background-color: #9999CC;
+    padding: 10px 10px;
+    height: 112px;
+}
+
+#photos li {
+    width: 124px;
+    float: left;
+    margin: 5px;
+    border: black 2px solid;
+    background-color: lightgray;
+}
+
+#photos li a {
+    background: #ccc url("images/bass_lake_beach.jpg") no-repeat;
+    height: 75px;
+    display: block;
+    width: 100px;
+    margin: 10px;
+    border: blue 2px solid;
+}
+
+/*# sourceMappingURL=lab02.css.map */
