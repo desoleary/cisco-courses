@@ -22,6 +22,14 @@
                    it will also set the main div to no longer float, be clear of the the leading and trailing,
                    it's width will be auto.  You can also optionally remove the margins from the table
 
+            */
+            @media screen and (min-width: 686px) and (max-width: 1345px) {
+                #leading, #trailing { width: 45%; float: left; }
+                #main { float: none; clear: both; width: auto; }
+                .contactdata { margin: 0 auto; }
+            }
+
+            /*
                 2. The second media query will be serve as the mobile (smaller) device query.
                    It will break at anything less than 685px.
                    For this condition you should set leading, trailing, and main to not float and a width of approx. 95% or so.
@@ -31,14 +39,6 @@
 
                    Note: if you do not like the suggested break values, you may alter them to your liking.
             */
-
-
-            @media screen and (min-width: 686px) and (max-width: 1345px) {
-                #leading, #trailing { width: 45%; float: left; }
-                #main { float: none; clear: both; width: auto; }
-                .contactdata { margin: 0 auto; }
-            }
-
             @media screen and (max-width: 685px) {
                 #leading, #trailing, #main { width: 95%; float: none; }
                 .contactdata { margin: 0 auto; }

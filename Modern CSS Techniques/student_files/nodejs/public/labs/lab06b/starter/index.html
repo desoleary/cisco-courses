@@ -11,26 +11,67 @@
 
         <style type="text/css">
 
+            /*
+                For ths exercise, you should only have to add 2 media queries in this style tag.
+                Note: a JavaScript piece has been added, called the layoutmgr, to switch the order of
+                the columns in the wide (desktop) format.
+
+                Add two media queries here:
+                1. One media query will break between 686 and 1345.  It should set the width of the leading and trailing
+                   sections to approx. 45% while still floating left
+                   it will also set the main div to no longer float, be clear of the the leading and trailing,
+                   it's width will be auto.  You can also optionally remove the margins from the table
+
+            */
             @media screen and (min-width: 686px) and (max-width: 1345px) {
                 #leading, #trailing { width: 45%; float: left; }
                 #main { float: none; clear: both; width: auto; }
                 .contactdata { margin: 0 auto; }
             }
 
+            /*
+                2. The second media query will be serve as the mobile (smaller) device query.
+                   It will break at anything less than 685px.
+                   For this condition you should set leading, trailing, and main to not float and a width of approx. 95% or so.
+                   You can also optionally remove the margins from the table here as well.
+
+                   Do not worry about how tight the table data appears right now.
+
+                   Note: if you do not like the suggested break values, you may alter them to your liking.
+            */
             @media screen and (max-width: 685px) {
                 #leading, #trailing, #main { width: 95%; float: none; }
-                .contactdata { margin: 0 auto; }
 
+                /* Implements vertical table */
+                table, thead, tbody, th, td, tr { display: block; }
+                tr { border: 1px solid #ccc; }
+                tr  th { position: absolute;
+                    top: -9999px;
+                    left: -9999px; }
+
+                td {
+                    border: none;
+                    border-bottom: 1px solid #eee;
+                    position: relative;
+                    padding-left: 50%;
+                }
+
+                td:before {
+                    position: absolute;
+                    top: 0;
+                    left: 6px;
+                    width: 45%;
+                    white-space: nowrap;
+                }
 
                 /*
-                    implement your responsive table solution here
-                    refer to the student materials on how to do this
-
+                   improved vertical table version uses CSS3 attr()
+                   Be sure to add an attribute called "data-title" to
+                   the <td> elements to make this work properly.
                 */
-
+                td:before { content: attr(data-title); }
 
             }
-
         </style>
 
 
