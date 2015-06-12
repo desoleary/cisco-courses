@@ -1,0 +1,59 @@
+* { box-sizing: border-box }
+
+body {
+  margin: 0;
+  padding: 10px;
+}
+
+header {
+  background-color: #fffe7f;
+  padding: 10px;
+}
+
+p {
+  border: black 1px solid;
+  background-color: #b19fdb;
+  margin: 5px;
+
+  span {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #805279;
+    margin: 10px;
+  }
+
+  &#p1 {
+    float: left;
+    width: 25%;
+  }
+
+  &#p2 {
+    float: right;
+    width: 25%;
+  }
+
+  &#p3 {
+    background-color: #4d9998;
+    width: auto;
+  }
+}
+
+footer {
+  background-color: lightgrey;
+  padding: 10px;
+  height: 50px;
+}
+
+/* Clearfix technique */
+// 1. Container will accommodate all of its floated children
+
+//#container::after {
+//  content: "";
+//  display: block;
+//  clear: both;
+//}
+
+// 2. Again container will accommodate all of its floated children
+//#container {
+//  overflow: auto;
+//}
