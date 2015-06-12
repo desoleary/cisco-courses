@@ -1,0 +1,25 @@
+* { box-sizing: border-box }
+
+body {
+  margin: 0;
+  padding: 10px;
+}
+
+p {
+  width: 100%;
+  background-color: #805279;
+  height: 50px;
+
+  &#p1 {
+    background-color: yellow;
+    width: 40%;
+  }
+
+  /* DEMO NOTES */
+  // Floats shift up and then left or right as far as possible
+  // Subsequent block elements move up behind floated elements
+
+  //&#p1 {
+  //  float: right;
+  //}
+}
