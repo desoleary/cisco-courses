@@ -1,0 +1,46 @@
+#photos {
+  width: 710px;
+
+  ul {
+    background-color: #9999CC;
+    padding: 10px 10px;
+  }
+
+  li {
+    width: 124px;
+    margin: 5px;
+    border: black 2px solid;
+    background-color: lightgray;
+
+    a {
+      background: #ccc url("images/bass_lake_beach.jpg") no-repeat;
+      height: 75px;
+      display: block;
+      width: 100px;
+      margin: 10px;
+      border: blue 2px solid;
+    }
+
+
+  }
+
+  /* DEMO NOTES */
+  //ul {
+  //  overflow: auto; // automatically accommodate space of your children
+  //
+  //  li {
+  //    float: left;
+  //  }
+  //}
+
+  /* Inline block to achive the same. */
+  //ul {
+  //  overflow: auto;
+  //  font-size: 0; // collapse whitespace between inline blocks
+  //  li {
+  //    display: inline-block;
+  //    font-size: 16px;
+  //  }
+  //}
+
+}

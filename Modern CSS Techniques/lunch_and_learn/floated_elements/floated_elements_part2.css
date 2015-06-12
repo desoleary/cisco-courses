@@ -1,0 +1,21 @@
+#photos {
+  width: 710px;
+  /* DEMO NOTES */
+  /* Inline block to achive the same. */ }
+  #photos ul {
+    background-color: #9999CC;
+    padding: 10px 10px; }
+  #photos li {
+    width: 124px;
+    margin: 5px;
+    border: black 2px solid;
+    background-color: lightgray; }
+    #photos li a {
+      background: #ccc url("images/bass_lake_beach.jpg") no-repeat;
+      height: 75px;
+      display: block;
+      width: 100px;
+      margin: 10px;
+      border: blue 2px solid; }
+
+/*# sourceMappingURL=floated_elements_part2.css.map */
