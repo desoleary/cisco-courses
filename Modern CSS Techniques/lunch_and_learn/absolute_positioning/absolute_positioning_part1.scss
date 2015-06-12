@@ -1,0 +1,17 @@
+h1, #p1 {
+  background-color: #8893ff;
+  width: 500px;
+  height: 100px;
+}
+
+#p2 {
+  background-color: #fffe7f;
+  width: 500px;
+  height: 100px;
+
+  /*  DEMO NOTES */
+  // On its own it will position relative to the body
+  //position: absolute;
+  //top: 50px;
+  //left: 100px;
+}

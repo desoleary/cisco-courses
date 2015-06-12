@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 10px; }
+  body > div + div {
+    margin-top: 10px; }
+
+div#div1 {
+  background-color: #834099;
+  width: 100%;
+  height: 50px; }
+
+div#div2 {
+  background-color: #834099;
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  position: relative;
+  /* DEMO NOTES */ }
+  div#div2 :first-child {
+    margin-top: 0; }
+  div#div2 h1 {
+    background-color: #4d9998;
+    padding: 5px;
+    height: 100px; }
+
+/*# sourceMappingURL=absolute_positioning_part2.css.map */

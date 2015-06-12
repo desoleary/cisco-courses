@@ -1,0 +1,24 @@
+h1, #p1 {
+  background-color: #8893ff;
+  width: 500px;
+  height: 100px;
+}
+
+#p2 {
+  background-color: #fffe7f;
+  width: 500px;
+  height: 100px;
+
+  /*  DEMO NOTES */
+
+  // 1. Comment out bottom and left and notice that p2 remains static
+  //bottom: 50px;
+  //left: 50px;
+
+  // 2. Comment out position and notice that you can now move p2 relative to its original position
+  //    The space that the element would have occupied in normal flow is maintained. Element now layers over neighboring elements.
+  //    Properties can be top|right|bottom|left Values can be positive or negative
+  //position: relative;
+
+  // 3. Change relative to fixed and notice it stays on the page as with the spinner..
+}
