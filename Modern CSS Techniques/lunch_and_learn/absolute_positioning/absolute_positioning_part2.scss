@@ -28,13 +28,17 @@ div#div2 {
     height: 100px;
   }
 
+  p#p1 {
+      background-color: #f6ff70;
+      width: 50%;
+      height: 50px;
+    }
+
   /* DEMO NOTES */
+  // positon changes relative to the highest parent with either relative or absolute positioning
   //p#p1 {
-  //  background-color: #f6ff70;
   //  position: absolute;
   //  top: 25px;
   //  left: 50px;
-  //  width: 50%;
-  //  height: 50px;
   //}
 }
