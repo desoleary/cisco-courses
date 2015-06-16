@@ -34,5 +34,7 @@ footer {
   height: 50px; }
 
 /* Clearfix technique */
+#container {
+  overflow: auto; }
 
 /*# sourceMappingURL=clearing_floats.css.map */

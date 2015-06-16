@@ -13,5 +13,7 @@ p {
   p#p1 {
     background-color: yellow;
     width: 40%; }
+  p#p1 {
+    float: right; }
 
 /*# sourceMappingURL=floated_elements_part1.css.map */

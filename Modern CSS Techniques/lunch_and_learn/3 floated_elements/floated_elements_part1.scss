@@ -19,7 +19,7 @@ p {
   // Floats shift up and then left or right as far as possible
   // Subsequent block elements move up behind floated elements
 
-  //&#p1 {
-  //  float: right;
-  //}
+  &#p1 {
+    float: right;
+  }
 }
