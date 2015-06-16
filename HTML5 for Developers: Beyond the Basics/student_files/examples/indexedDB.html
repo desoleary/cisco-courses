@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+	<head>
+	
+	</head>
+	<body>
+				
+		Results shown in console.
+				
+		<script>
+			(function(){
+
+				var objectstore, 
+				    indexedDB   = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB,
+				    request     = indexedDB.open('contacts', 1);
+				
+				request.onerror = function() { console.log('indexedDB not opened.'); };
+				
+				request.onsuccess = function() { 
+					var db = request.result; 
+					
+					tx = db.transaction(['contactstore'], 'readwrite');
+					var store = tx.objectStore('contactstore');
+
+					store.put({name: 'John', address: '123 Main St.', phone: '123-4567', email: 'john@funland.com'});
+					store.put({name: 'Sally', address: '456 Oak Ave.', phone: '987-6543', email: 'sally@funland.com'});
+					store.put({name: 'Fred', address: '789 Elm Dr.', phone: '333-4444', email: 'fred@funland.com'});
+
+					tx.oncomplete = function() {
+					  console.log('Records added. Total records: ' + store.length);
+					};
+
+					store.index.get('Sally').onsuccess = function() {
+					  var matching = request.result;
+					  if (matching !== undefined) 
+					    console.log(matching.name, matching.address, matching.phone, matching.email);
+					   else 
+						  console.log('Name not found.');
+					};
+				};
+				
+			})();
+			
+            
+		</script>
+	</body>
+</html>

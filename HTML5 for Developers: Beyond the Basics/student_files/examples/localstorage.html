@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+	<head>
+		<style>
+			body { font: 14px arial; }
+		
+			#results { 
+				border: 1px solid #000; 
+				border-radius: 25px; 
+				width: 80%; 
+				padding: 20px; 
+				margin: 50px; 
+				box-shadow: 0 5px 5px 0 #777; 
+			}
+			#localItems { font: italic 12px arial; }
+			#storageForm { margin: 50px; border: 1px solid #000; width: 500px; padding: 10px; }
+			#storageForm ul { padding: 0 20px; }
+			#storageForm li { list-style-type: none; margin-bottom: 10px; }
+			#storageForm li input { margin-right: 40px; }
+		</style>
+
+	</head>
+	<body>
+		<section id="results">
+			<header>The following items are stored locally:</header>
+			<section id="localItems"></section>
+		</section>
+		
+		<div>
+			<form id="storageForm">
+				<ul>
+					<li>
+						<p>Add miscellaneous item to storage</p>
+						<label for="key">Key </label><input type="text" id="key" size="10">
+						<label for="miscData">Value </label><input type="text" id="miscData">
+					</li>
+					<li>
+						<input type="submit" value="Add Item">
+					</li>
+				</ul>
+			</form>
+		</div>
+		<script type="text/javascript">
+			
+			(function(){
+				var localItems  = document.getElementById('localItems'),
+					storageForm = document.getElementById('storageForm'),
+					key         = document.getElementById('key'),
+					miscData    = document.getElementById('miscData');
+				    item = document.createElement('p');
+				
+				item.innerHTML = 'No items found.';
+				
+				if (localStorage.length === 0) 
+					localItems.appendChild(item);
+				
+				function displayProps() {
+					localItems.innerHTML = '';
+					for (var prop in localStorage) {
+						item = document.createElement('p');
+						item.innerHTML = (prop + ' - ' + localStorage[prop]);
+						localItems.appendChild(item);
+					}
+				}
+				
+				storageForm.onsubmit = function(evt){
+					evt.preventDefault();
+
+					if (key.value && miscData.value) 
+						localStorage[key.value] = miscData.value;
+					
+					displayProps();
+					
+					return false;
+				};
+				
+			})();
+		</script>
+	</body>
+</html>

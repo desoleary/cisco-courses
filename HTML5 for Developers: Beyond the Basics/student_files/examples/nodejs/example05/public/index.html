@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<link href="emp.css" rel="stylesheet" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script type="text/javascript">
+   			window.jQuery ||document.write('<script type="text/javascript" src="jquery.js"><\/script>');
+		</script>
+        
+	</head>
+	<body>
+	
+		<div id="empSearch">
+			<form id="empSearchForm">
+				<label for="empid">Employee ID:</label>
+				<input type="text" id="empid" autofocus>
+				<input type="submit" value="Search (JSON)">
+			</form>
+		</div>
+	
+		<div id="results"></div>
+	
+		<script type="text/javascript">
+			
+			$(function() {
+				
+				
+				$('#empSearchForm').submit(function(evt){
+					evt.preventDefault();
+					var empid = $('#empid').val();
+					var options = { 
+						url : "/employee/" + empid,
+						type: "GET",
+						dataType: "json",
+						success: handleJson
+					};
+					
+					$.ajax(options);
+					
+				});
+				
+				function handleJson(results) {
+					
+					var empid     = results.empid,
+					    firstName = results.firstname,
+					    lastName  = results.lastname,
+					    salary    = results.salary,
+						empInfo   = 'No employee found.';
+					
+					if (empid) 
+						empInfo = firstName + ' ' + lastName + ' ('+ salary +')';
+					
+					$('#results').append('<p>' + empInfo + '</p>');
+				}
+				
+			});
+		
+		</script>
+	</body>
+</html>

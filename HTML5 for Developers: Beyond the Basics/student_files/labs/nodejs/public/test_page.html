@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script type="text/javascript">
+   			window.jQuery ||document.write('<script type="text/javascript" src="jquery.js"><\/script>');
+		</script>
+        
+	</head>
+	<body>
+	
+		<div id="testSearch">
+			<form id="testForm">
+				<label for="testval">Test: </label>
+				<input type="text" id="testval" autofocus>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	
+		<div id="results"></div>
+	
+		<script type="text/javascript">
+			
+			$(function() {
+				
+				
+				$('#testForm').submit(function(evt){
+					evt.preventDefault();								// line 28
+					var testval = $('#testval').val(),
+					    options = { 
+						    url : "/test/" + testval,
+						    type: "GET",
+						    dataType: "json",
+						    success: handleJson
+					    };
+					console.log(testval);
+					console.log(testval);
+					$.ajax(options);									// line 37
+					
+				});
+				
+				function handleJson(results) {
+					
+					var msg = results.data || results.error;
+					$('#results').append('<p>' + msg + '</p>');			// line 44
+				}
+				
+			});
+		
+		</script>
+	</body>
+</html>

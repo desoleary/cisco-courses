@@ -1,0 +1,634 @@
+/*----------------------------------------------------
+  universal styles 
+----------------------------------------------------*/
+body {
+    font-size:100%;
+}
+strong {
+    font-weight:bold;
+}
+
+em {
+    font-weight:normal;
+    font-style:normal; 
+}
+a {
+    text-decoration:none;
+    color:#039;
+}
+
+/*----------------------------------------------------
+  clearfix
+----------------------------------------------------*/
+
+#wrapper:after,
+#universal-links:after,
+#main-nav:after,
+#stories:after,
+#more-stories:after,
+.source-list:after,
+#news-categories:after {
+    display:block;
+    content:'';
+    clear:both;
+}
+
+#wrapper,
+#universal-links,
+#main-nav,
+#stories,
+#more-stories,
+.source-list,
+#news-categories {
+    *zoom:1;
+}
+
+
+/*----------------------------------------------------
+  wrapper
+----------------------------------------------------*/
+
+#wrapper {
+    font-size:77%;
+    font-family:Verdana,Geneva,"Lucida Sans",sans-serif;
+    width:61em;
+    margin:0 auto;
+    position:relative;
+}
+
+/*----------------------------------------------------
+  universal header
+----------------------------------------------------*/
+
+#universal-links {
+    background:#EFEFEF;
+    font-size:77%;
+    border-bottom:1px solid #999;
+    *padding-bottom:0.5em;
+}
+#account-links {
+    background:#EFEFEF;
+    font-size:77%;
+    position:absolute;
+    top:0;
+    right:0;
+}
+#account-links li,
+#universal-links li {
+    margin:0.4em 0;
+    float:left;
+}
+#universal-links li {
+    border-right:1px solid #aaa;
+}
+#universal-links li.last-child {
+    background:url(cssimages/aro_eb.gif) no-repeat right;
+    padding-right:0.5em;
+    border-right:none;
+}
+#account-links li.last-child {
+    border-left:1px solid #aaa;
+}
+#account-links a,
+#universal-links a {
+    color:#666;
+    display:block;
+    padding:0 0.8em;
+}
+ 
+
+
+/*----------------------------------------------------
+  logo
+----------------------------------------------------*/
+
+#logo {
+    clear:left;
+    width:208px;
+    height:33px;
+    background:url(cssimages/header.gif);
+    margin:0.5em 0 0.5em 0;
+}
+#logo a {
+    display:block;
+    text-indent:-999em;
+}
+
+
+/*----------------------------------------------------
+  web search
+----------------------------------------------------*/
+
+#web-search {
+    clear:right;
+    float:right;
+    font-size:87%;
+    margin-top:1em;
+}
+#web-search label, 
+#web-search input,
+#web-search span {
+    float:left;
+}
+#web-search label {
+    padding:0.2em 0.4em 0px 0px;
+    font-weight:bold;
+    color:#666;
+}
+#web-search #query {
+    height:1.3em;
+    width:20em;
+}
+
+#web-search #web-search-submit {
+	color: black;
+	border:none;
+    height:1.9em;
+    *height:1.7em;
+	font-weight:bold;
+    font-size:87%;
+    padding:0 0.5em 0.5em 0.5em;
+    *padding-top:0.25em;
+	background:transparent url(cssimages/grd-1px_1.1.gif) repeat-x 0 -450px;
+    cursor:pointer;
+}
+#web-search span {
+    border: 1px solid orange;
+    display:block;
+}
+
+
+
+
+/*----------------------------------------------------
+  navigation
+----------------------------------------------------*/
+
+
+#main-nav {
+    font-size:77%;
+    padding-left:0.4em;
+}
+#main-nav {
+    position:relative;
+}
+#main-nav li {
+    float:left;
+    background:transparent url(cssimages/storysprite3.gif) repeat-x 0 -264px;
+}
+#main-nav a {
+    color:#444;
+    font-weight:bold;
+    display:block;
+    padding:0.6em 0.9em 0.5em 0.8em;
+    margin-left:3px;
+    background:transparent url(cssimages/storysprite3.gif) repeat-x right -212px;
+}
+#main-nav li.active {
+    background:transparent url(cssimages/storysprite3.gif) repeat-x 0 -240px;
+}
+#main-nav li.active a {
+    background:transparent url(cssimages/storysprite3.gif) repeat-x right -180px;
+    color:#fff;
+}
+
+#sub-nav {
+    position:absolute;
+    top:2.2em;
+    left:0;
+    background:#2C4463 url(cssimages/subnav_bkgd.gif) repeat-x;
+    width:79em;
+    _width:79.2em;
+    border:1px solid #2C4463;
+}
+#sub-nav li {
+    background:none;
+}
+#main-nav li.active #sub-nav a  {
+    background:transparent url(cssimages/tab_subnav_separator.gif) no-repeat right;
+    color:#fff;
+    font-weight:normal;
+    padding:0.7em 1.2em 0.6em 0.7em;
+    padding:0.7em 1em 0.6em 0.5em;
+}
+
+
+/*----------------------------------------------------
+  news search (top)
+----------------------------------------------------*/
+
+#news-search-one {
+    margin:2.1em 0 1em 0;
+	padding:0.6em 0;
+	_padding:0.5em 0 0.5em 0;
+}
+
+#news-search-one label {
+    *position:relative;
+    *top:-0.2em;
+    font-weight:bold;
+}
+.news-search {
+	font-size:87%;
+	padding-bottom:0.3em;
+	color:#fff;
+	background:#999999;
+	text-align:center;
+	*width:70.1em;
+}
+.news-search a {
+	color:#13406c;
+	font-weight:normal;
+	font-size:93%;
+	*position:relative;
+	*top:-0.2em;
+}
+#news-search-input {
+	width:25em;
+	*height:1.5em;
+}
+.news-search select {
+	width:11em;
+}
+.news-search input, 
+.news-search select, 
+.news-search button {
+	margin-right:0.5em;
+}
+
+
+
+
+
+/*----------------------------------------------------
+    content divisions
+----------------------------------------------------*/
+#main-content {
+    float:left;
+    width:46.3em;
+}
+
+#secondary-content {
+    float:right;
+    background:pink;
+    width:175px;
+    height:75em;  /* height is artificial for development */
+}
+
+
+/*----------------------------------------------------
+  main stories
+----------------------------------------------------*/
+
+/* experiment with easy layout switching */
+#stories {
+    font-size:93%;
+    overflow:hidden;   /* for faux columns */
+    margin-bottom:1em;
+}
+#stories.layout1 #main-story {
+    float:left;
+    width:24.8em;
+    background:url(cssimages/rul_vert_dot.gif) repeat-y right;
+    padding-right:0.5em;
+    padding-bottom:1000px;
+    margin-bottom:-1000px;    
+}
+#stories.layout1 .secondary-story {
+    float:right;
+    width:22.8em;
+    background:url(cssimages/rul_hori_dot.gif) repeat-x bottom;
+    margin-right:0.8em;
+    padding-bottom:0.8em; 
+    _margin-left:0.7em;
+}
+
+#stories.layout2 #main-story {
+    background:url(cssimages/rul_vert_dot.gif) repeat-y left;
+    float:right;
+    width:24.8em;
+    padding-left:1em;
+    padding-bottom:1000px;
+    margin-bottom:-1000px;    
+}
+#stories.layout2 .secondary-story {
+    float:left;
+    width:22.8em;
+    background:url(cssimages/rul_hori_dot.gif) repeat-x bottom;    
+    padding-bottom:0.8em;
+}
+
+
+/* note: remember IE6 doesn't support stacked classes, it will only read the last one 
+   so this is equivalent to declaring:
+   #stories.layout1 .last-child {}
+*/
+#stories.layout1 .secondary-story.last-child,
+#stories.layout2 .secondary-story.last-child {
+    padding-top:0.8em;
+    background:none;
+}
+
+#stories #main-story img {
+    display:block;
+}
+#stories .enlarge-link,
+#stories cite {
+    font-size:87%;
+    color:#555;    
+}
+#stories .enlarge-link {
+    float:right;
+    padding:0.1em 1.5em 0 0;
+    background:url(cssimages/enlarge.gif) no-repeat right;
+}
+#stories h2 a,
+#stories h3 a {
+    margin-top:0.2em;
+    font-weight:bold;
+    font-size:182%;
+    display:block;
+}
+#stories h3 a {
+    font-size:131%;
+    position:relative;
+    top:-0.4em;
+}
+#stories .secondary-story img {
+    margin-right:0.7em;
+    float:left;
+}
+#stories .timestamp {
+    font-weight:bold;
+}
+#stories .article-cite {
+    display:block;
+    margin:0.5em 0;
+}
+#stories .article-media {
+    margin-top:1em;
+}
+#stories .article-media li {
+    font-weight:bold;
+    color:#555;
+    padding-left:1.5em;
+}
+#stories .article-media li a {
+    font-weight:normal;
+}
+#stories .article-media .slideshow {
+    background:url(cssimages/sldshw12_1.gif) no-repeat 0 2px;
+}
+#stories .article-media .video {
+    background:url(cssimages/vid12_1.gif) no-repeat 0 2px;
+}
+#stories .article-media .full-coverage {
+    background:url(cssimages/fullcov12_1.gif) no-repeat 0 2px;
+}
+
+
+/*----------------------------------------------------
+  more stories
+----------------------------------------------------*/
+
+#more-stories {
+	font-size: 87%;
+	clear: both;
+	background:#ccdbe8;
+}
+#more-stories h4 {
+	background:#a2bccd;
+	color:#036;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding:0.3em;
+}
+#more-stories a {
+	color:#039;
+	font-weight:bold;
+}
+#more-stories ul {
+	background:#eff3f6;
+	padding:0.5em 0 1em 0.8em;
+}
+#more-stories li {
+	background: url(cssimages/bblt.gif) no-repeat 0 0;
+	padding-left:1em;
+}
+#more-stories .timestamp,
+#more-stories cite {
+	font-size:93%;
+	color:#555;
+}
+#more-stories .timestamp {
+    font-weight:bold;
+}
+#sixty-minutes {
+	font-size:93%;
+	padding:0.5em 0 0 1em;
+	width:24.1em;
+	background:#ccdbe8 url(cssimages/rul_vert_dot.gif) repeat-y 100% 0;
+	height:11.5em;
+	_float:left;
+}
+#sixty-minutes span#sixty-minutes-title {
+	display:block;
+	font-weight:bold;
+	color:#003366;
+	text-transform:uppercase;
+	margin-bottom:0.5em;
+}
+#sixty-minutes-img {
+	float:left;
+	margin-right:0.5em;
+}
+#sixty-minutes a#sixty-minutes-link {
+	position:relative;
+	top:-0.4em;
+}
+#sixty-minutes p {
+	position:relative;
+	top:-0.4em;
+}
+#sixty-minutes a#sixty-minutes-more {
+	font-weight:normal;
+	position:relative;
+	top:-0.4em;
+	display:block;
+}
+#week-in-photos {
+    font-size:93%;
+	padding:1em;
+	float:right;
+	background: #ccdbe8;
+	height:10em;
+}
+
+#week-in-photos a {
+	display: block;
+}
+
+/*----------------------------------------------------
+ story boxes
+----------------------------------------------------*/
+
+.story-box {
+    margin:3.3em 0 1.5em 0; /* margin-top is the top offset of the abs:pos h4 and then some*/
+    padding-bottom:1em;
+    border:1px solid #999;    
+    position:relative;
+    _zoom:1;  /* rounded corner abs:pos won't work unless this is set */
+}
+.story-box h4 {
+    position:absolute;
+    top:-2.5em;
+    left:0;
+}
+.story-box h4 a {
+    display:block;
+    text-decoration:underline;
+    font-size:123.1%;
+    font-weight:bold;
+}
+.story-box .source-list {
+    background:url(cssimages/newcats_bkgd.gif) repeat-x;
+    border-bottom:1px solid #999;
+    padding-left:0.1em;
+    overflow:visible;    
+}
+.story-box .source-list li {
+    font-size:87%;
+    float:left;
+    border-right:1px solid #aaa;
+}
+.story-box .source-list li a {
+    display:block;
+    margin-left:3px; /* this is in px to offset sliding doors sprite */
+    padding:0 0.4em;
+}
+.story-box .source-list .active {
+    background:transparent url(cssimages/ptr.gif) no-repeat 55% bottom;
+    border-right:none;
+    padding:0;  /* reset inherited padding */
+    position:relative;
+    top:-0.4em;
+    padding-bottom:0.65em;
+    margin-bottom:-2em;
+    overflow:visible;
+}
+.story-box .source-list .active a {
+    background:url(cssimages/storysprite3.gif) repeat-x -2px -243px;
+    font-weight:bold;
+    display:block;    
+    color:#fff;
+    padding:0;  /* reset inherited padding */
+    position:relative;
+    top:0.1em;
+}
+.story-box .source-list .active em {
+    background:#344F73 url(cssimages/storysprite3.gif) repeat-x right -183px;
+    display:block;
+    padding:0.2em 0.9em 0.2em 0.8em;
+    margin-left:3px; /* offset rounded corner asset */ 
+    font-weight:bold;
+}
+.story-box .source-list .last-child {
+    border-right:none;
+}
+
+
+.story-box .story-list {
+    margin:1em 1em 1em 1em;
+    padding-bottom:1em;
+    font-size:93%;
+    background:url(cssimages/rul_hori_dot.gif) repeat-x bottom;
+}
+.story-box .single-list {
+    background:none;
+    padding-bottom:0;
+    margin-bottom:0;
+}
+.story-box .story-list li {
+    list-style-type:disc;
+    margin-left:1.5em;
+}
+.story-box .story-list .timestamp,
+.story-box .story-list cite {
+    font-size:87%;
+    color:#555;    
+}
+.story-box .story-list .timestamp {
+    font-weight:bold;
+}
+.story-box .story-list .last-child {
+    background:url(cssimages/raquo.gif) no-repeat left 0.4em;
+    list-style-type:none;
+    padding-left:1.3em;
+    margin:1em 0 0 0.5em;
+    font-weight:bold;
+    font-size:87%;
+}
+.story-box strong {
+    margin-left:1em;
+    font-size:87%;    
+}
+.story-box .more-list,
+.story-box .more-list li {
+    display:inline;
+}
+.story-box .more-list li {
+    font-size:87%;
+    padding:0 0.5em;
+}
+.story-box .hook1,
+.story-box .hook2,
+.story-box .hook3,
+.story-box .hook4 {
+    display:block;
+    _font-size:0px;
+    width:3px;
+    height:3px;
+}
+.story-box .hook1 {
+    position:absolute;
+    top:-1px;
+    left:-1px;
+    background:url(cssimages/cr_m_lblue_nw.gif) no-repeat;
+}
+.story-box .hook2 {
+    position:absolute;
+    top:-1px;
+    right:-1px;
+    _right:-2px;
+    background:url(cssimages/cr_m_lblue_ne2.gif) no-repeat;
+}
+.story-box .hook3 {
+    position:absolute;
+    left:-1px;    
+    bottom:-1px;
+    _bottom:-2px;
+    background:url(cssimages/cr_m_lblue_sw.gif) no-repeat;
+}
+.story-box .hook4 {
+    background:url(cssimages/cr_m_lblue_se.gif) no-repeat;
+    position:absolute;
+    bottom:-1px;
+    _bottom:-2px;    
+    right:-1px;
+    _right:-2px;
+}
+
+
+
+
+/*----------------------------------------------------
+ footer
+----------------------------------------------------*/
+#ft {
+    clear:both;
+    width:100%;
+    position:relative;
+    height:4em;		/* temporary height for development */
+    background: #cfcfff;
+}
+

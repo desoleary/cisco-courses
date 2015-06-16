@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+	<head>
+		<title>Yahoo! News</title>
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset-fonts/reset-fonts.css">
+		<link rel="stylesheet" type="text/css" href="news.css">
+		<style>
+			input[type="search"] {
+				-webkit-appearance: searchfield;
+			    -webkit-box-sizing: border-box;
+			    outline:none; 
+			}
+			
+			input[type="search"]::-webkit-search-cancel-button {
+				-webkit-appearance: none;
+			} 
+			
+			input[required] { background-color: #ffffcc; }
+			
+			input:invalid, #web-search input.invalid { background-color: #ffcccc; }
+
+			img[alt="People fleeing"] {
+				border: 10px solid white;
+				-moz-transform: rotate(9deg);
+				-webkit-transform: rotate(9deg);
+				transform: rotate(9deg);
+				-moz-box-shadow: 5px 5px 2px #888;
+				-moz-box-shadow: 5px 5px 2px #888;
+				box-shadow: 5px 5px 2px #888;
+			}
+			
+			img[alt="People fleeing"]:hover {
+				-moz-transform: rotate(0deg) scale(1.2);
+				-webkit-transform: rotate(0deg) scale(1.2);
+				transform: rotate(0deg) scale(1.2);
+			}
+
+			#main_img {
+			    -moz-border-radius-bottomleft: 20px;
+			    -moz-border-radius-topright: 20px;
+			    -webkit-border-bottom-left-radius: 20px;
+			    -webkit-border-top-right-radius: 20px;
+			    border-bottom-left-radius: 20px;
+			    border-top-right-radius: 20px;
+			}
+
+		</style>
+		
+		<script src="http://yui.yahooapis.com/combo?3.3.0/build/yui/yui-min.js" ></script>
+		
+	</head>
+	<body>
+		<div id="wrapper">
+		    <header>
+			    <nav>
+				    <ul class="nav" id="universal-links">
+				        <li><a href="">Yahoo!</a></li>
+				        <li><a href="">My Yahoo!</a></li>
+				        <li><a href="">Mail</a></li>
+				        <li class="last-child"><a href="">More</a></li>
+			    	</ul>
+		    	</nav>
+		
+			    <ul id="account-links">
+			        <li><a href="">Welcome, <strong>johnsmith</strong></a></li>
+			        <li><a href="">Sign Out</a></li>
+			        <li class="last-child"><a href="">Help</a></li>
+			    </ul>
+			
+				<!-- lab03 -->
+				<form id="web-search">
+			    	<label for="query">Search:</label>
+			    	<input id="query" name="query" type="search" required placeholder="Search term" autofocus pattern="^[A-z0-9]+$" size="25"/>
+			    	<span>
+			    	    <input id="web-search-submit" type="submit" value="Web Search"/>
+			    	</span>
+				</form>
+		
+				<h1 id="logo">
+					<a href="http://news.yahoo.com">Yahoo! News</a>
+				</h1>			
+				
+				<nav>
+					<ul id="main-nav" class="nav">
+						<li class="active">
+				            <a href="">Home</a>
+				            <nav>
+					            <ul id="sub-nav" class="nav">
+					                <li><a href="">Video</a></li>
+					                <li><a href="">Photos</a></li>
+					                <li><a href="">Opinion</a></li>
+					                <li><a href="">Local</a></li>
+					                <li><a href="">Odd News</a></li>
+					                <li><a href="">Comics</a></li>
+					                <li><a href="">Travel</a></li>
+					                <li><a href="">Weather</a></li>
+					                <li><a href="">People of the Web</a></li>
+					                <li><a href="">You Witness News</a></li>
+					                <li class="last-child"><a href="">Site Index</a></li>
+					            </ul>
+					         </nav>		
+				        </li>
+						<li><a href="">U.S.</a></li>
+						<li><a href="">Business</a></li>
+						<li><a href="">World</a></li>
+						<li><a href="">Entertainment</a></li>
+						<li><a href="">Sports</a></li>
+						<li><a href="">Tech</a></li>
+						<li><a href="">Politics</a></li>
+						<li><a href="">Elections</a></li>
+						<li><a href="">Science</a></li>
+						<li><a href="">Health</a></li>
+						<li><a href="">Most Popular</a></li>
+					</ul>	
+				</nav>
+				
+				<form id="news-search-one" class="news-search">
+					<label for="news-search-input">Search:</label>
+					<input id="news-search-input" type="text"/>
+					<select>
+						<option>All News</option>
+					</select>
+					<input class="news-search-submit" type="submit" value="Search" />
+					<a href="">Advanced</a>
+				</form>
+			</header>
+		
+			<section>
+			    <div id="main-content">
+			        <ul id="stories" class="layout1">
+						<li id="main-story">
+							<article>
+								<header>
+									<div class="header">
+									   <div id="main_img">
+										 <a href=""><img alt="Prime Minister Shinzo Abe" src="images/news_japan.jpg"/></a>
+									   </div>
+										<a href="" class="enlarge-link">Enlarge Photo</a>
+										<cite>Reuters</cite>
+										<h2><a href="">Japan's prime minister says he'll resign</a></h2>				
+										<cite class="article-cite">AP - <span class="timestamp">2 hours, 41 minutes ago</span></cite>
+									</div>
+								</header>
+								<section>
+									<p class="section">TOKYO - Japan's Prime Minister Shinzo Abe announced Wednesday he will resign, ending a troubled year-old government that has suffered a string of damaging scandals and a humiliating electoral defeat.</p>
+								</section>
+								<footer>
+									<ul class="article-media footer">
+										<li class="slideshow">Slideshow: <a href="">Japanese Prime Minister Shinzo Abe resigns</a></li>
+									 	<li class="video">Video: <a href="">Japanese PM steps down</a> <cite>Australia 7 News</cite></li>
+									</ul>	
+								</footer>
+							</article>					
+						</li>
+						<li class="secondary-story">
+						<article>
+							<header>
+								<div class="header">
+									<a href=""><img alt="People fleeing" src="images/news_quake.jpg"/></a>
+									<h3><a href="">Quake triggers tsunami in Indonesia</a></h3>
+									<cite class="article-cite">AP - <span class="timestamp">24 minutes ago</span></cite>
+								</div>
+							</header>
+							<section>
+								<p class="section">JAKARTA, Indonesia - A powerful earthquake shook Indonesia on Wednesday, killing seven people, injuring 100 and triggering a small tsunami that hit one city on the island of Sumatra, authorities said. Tsunami warnings were issued for much of the Indian Ocean region.</p>
+							</section>
+							<footer>
+								<ul class="article-media footer">
+									<li class="slideshow">Slideshow: <a href="">Powerful earthquake hits Indonesia</a></li>
+									<li class="video">Video: <a href="">Tsunami warnings after strong Indonesia quake</a> <cite>AP</cite></li>
+								</ul>						
+							</footer>
+						</li>
+						<!-- this element would be similar to the first two above -->
+						<li class="secondary-story last-child">
+							<a href=""><img alt="Kids holding posters" src="images/news_putin.jpg"/></a>
+							<h3><a href="">Putin names surprise nominee for PM</a></h3>
+							<cite class="article-cite">AP - <span class="timestamp">34 minutes ago</span></cite>
+							<p>MOSCOW - President Vladimir Putin dismissed his long-serving prime minister Wednesday and nominated little-known Cabinet official Victor Zubkov to replace him in a surprise move that could put Zubkov in the running to replace Putin next year.</p>
+							<ul class="article-media">
+								<li class="video">Video: <a href="">Shakeup in Russia's government</a> <cite>AP</cite></li>
+								<li class="full-coverage">Full Coverage: <a href="">Russia</a> </li>
+							</ul>						
+						</li>
+		        	</ul>
+		        
+		        	<section>
+				    	<div id="more-stories" class="section">
+				    		<header>
+				    			<h4>More Stories</h4>
+				    		</header>
+				    		<section>
+					    		<ul class="section">
+					    			<li><a href="">Mattel pledges to make toys safe</a> <cite>AP - </cite><span class="timestamp">24 minutes ago</span></li>
+					    			<li><a href="">Rich New Yorkers apt to stay, poorer to move: study </a> <cite>Reuters - </cite><span class="timestamp">1 hour, 36 minutes ago</span></li>						
+					    			<li><a href="">Pats' coach speaks with NFL about spying</a> <cite>AP - </cite><span class="timestamp">24 minutes ago</span></li>						
+					    		</ul>
+					    	</section>
+				    		<div id="week-in-photos">
+				    			<a href=""><img src="images/morestories_photos.jpg"/></a>
+				    		</div>    
+				    		<section>		
+					    		<div id="sixty-minutes" class="section">
+					    			<span id="sixty-minutes-title">60 Minutes on Yahoo! News</span>
+					    			<a id="sixty-minutes-img" href=""><img alt="Jerry Seinfeld" src="images/morestories_60minutes.jpg"/></a>
+					    			<a id="sixty-minutes-link" href="">Creating Seinfeld</a>
+					    			<p>How Jerry Seinfeld and Larry David came up with the hit series.</p>
+					    			<a id="sixty-minutes-more">&raquo; More 60 Minutes</a>
+					    		</div>
+				    		</section>
+				    	</div>
+			    	</section>
+			    
+			    	<section>
+						<div class="story-box section">
+							<header>
+								<h4><a href="">Top Stories</a></h4>
+							</header>
+							<section>
+								<nav>
+									<ul class="source-list nav">
+										<li class="active"><a href=""><em>AP</em></a></li>
+										<li><a href="">Reuters</a></li>
+										<li><a href="">AFP</a></li>
+										<li><a href="">CSMonitor.com</a></li>
+										<li><a href="">USAToday.com</a></li>
+										<li><a href="">CNN.com</a></li>
+										<li><a href="">en Español</a></li>
+										<li class="last-child"><a href="">My Sources</a></li>
+									</ul>
+								</nav>
+								<ul class="story-list">
+									<li><a href="">Storm warnings issued for Texas, La. </a><cite> AP</cite> - <span class="timestamp">42 minutes ago</span></li>
+									<li><a href="">Life expectancy of Americans hits 78 </a><cite> AP</cite> - <span class="timestamp">2 hours, 47 minutes ago</span></li>
+									<li><a href="">Paulson: market turbulency may linger</a><cite> AP</cite> - <span class="timestamp">1 hours, 8 minutes ago</span></li>
+									<li><a href="">Jon Stewart to return as Oscar host </a><cite> AP</cite> - <span class="timestamp">1 hours, 33 minutes ago</span></li>
+									<li><a href="">Despite demand, libraries won't add PCs </a><cite> AP - Wednesday Sep 12, 5:27AM EST</cite></li>
+									<li class="last-child"><a href="">All Top Stories from AP</a></li>
+								</ul>
+								<strong>MORE TOP NEWS:</strong>
+								<ul class="more-list">						
+									<li><a href="">U.S. News and World Report</a></li>
+									<li><a href="">Pew Daily Number</a></li>
+									<li><a href="">Photos and Slideshows</a></li>						
+								</ul>
+								<span class="hook1"></span>
+								<span class="hook2"></span>
+								<span class="hook3"></span>
+								<span class="hook4"></span>
+							</section>
+						</div>
+					</section>
+			    </div>
+		    </section>
+		    
+		    <section>
+		    	<div id="secondary-content" class="section">secondary content</div>
+			</section>
+			
+			<footer>
+				<div id="ft" class="footer">footer</div>
+			</footer>
+		</div>
+		
+		<script>
+		
+			YUI().use('node', function (Y) {
+		
+				var supports = function(el, attr) {
+					return attr in document.createElement(el);
+				};
+				
+				var validate = function(el) {
+					var pattern = el.getAttribute('pattern'), value = el.get('value');
+					var match = false;
+					if (value && pattern)
+						match = value.match(new RegExp(el.getAttribute('pattern')));
+					
+					if (!match) {
+        				el.addClass('invalid');
+        				return false;
+        			}
+        			else 
+        				el.removeClass('invalid');
+					
+					return match;
+				};
+				
+		        var handleSubmit = function(e) {
+		        	var el = Y.one('#web-search input');
+		        	e.preventDefault();
+		        	if(!supports('input', 'pattern')) {
+	        			if (!validate(el)) 
+	        				return false;
+		        	}
+		        	
+		        	alert("Form submitted!");
+		        };
+		     
+		        Y.one('#web-search').on('submit', handleSubmit);
+		        Y.one('#query').on('keydown', function(e){validate(e.target);}); validate(Y.one('#query'));  // to handle 'as you type' conditions if desired
+		   });
+	
+		</script>
+	</body>
+</html>

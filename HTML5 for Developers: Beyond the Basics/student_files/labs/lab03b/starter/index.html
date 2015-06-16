@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="contacts.css" rel="stylesheet" type="text/css">
+
+		<!--[if lt IE 9]>
+			<script src="html5shiv.js"></script>
+		<![endif]-->
+
+
+		<script src="jquery.js" type="text/javascript"></script>
+	</head>
+	<body>
+		
+		<div id="wrapper">
+   			<header>
+      			<h1>HTML5</h1>
+   			</header>
+   			<div id="content">
+      			<div id="primary">
+         				<div id="results"></div>
+      			</div>
+      			<div id="secondary">
+         				<div id="contactDetails"></div>
+      			</div>
+	 			<section id="main">
+					<div id="gridMain"></div>
+	 			</section>
+   			</div>
+   			<footer></footer>
+		</div>
+		<div id="contactSearch">
+   			<form id="contactSearchForm">
+      			<label for="contactid">Contact ID</label>
+         			<input type="text" id="contactid">
+         			<input type="submit" value="Search">
+         			<input type="button" value="Search (XML response)" 
+                		id="xmlSearch">
+   			</form>
+		</div>
+
+		
+		<script type="text/javascript">
+					
+			$(function() {
+		
+				$('#contactSearchForm').submit(function(evt){
+
+					var contactid = $('#contactid').val();
+					var options = { 
+					    url     : "/contact/" + contactid,
+					    type    : "GET",
+					    headers : {'format' : 'json'},
+					    dataType: "json",
+					    success : handleJson
+					};
+						
+					if (contactid)
+						$.ajax(options);					
+
+					return false;
+				});
+
+				
+				
+				function handleJson(results) {
+					var contactid   = results.contactid, name, address, phones, email, company, position, contactInfo = 'No contact found.';
+					
+					if(contactid) {
+					    name     	= results.name,
+					    address     = results.address,
+					    phones      = results.phones,
+					    email       = results.company,
+				        company     = results.company,
+					    position    = results.position;
+					    
+					    contactInfo = name + ' ' + address + ' Ph: '+ phones[0].number + ' ' + phones[0].type;
+					}     
+									
+					$('#results').append('<p>' + contactInfo + '</p>');
+				}
+
+			
+				$('#xmlSearch').click(function(evt){
+
+					var contactid = $('#contactid').val();
+					var options = { 
+					    url     : "/contact/" + contactid,
+					    type    : "GET",
+					    headers : {'format' : 'xml'},
+					    dataType: "xml",
+					    success : handleXml
+					};
+						
+					if (contactid)
+						$.ajax(options);					
+
+					return false;
+				});
+			
+				
+				
+				
+				function handleXml(result) {
+				      var doc = $(result.documentElement), name, address, phones, email, company, position, contactInfo = 'No contact found.'
+				      
+				      if(doc) {
+						    contactid  	= doc.find('contactid').text(),
+						    name        = doc.find('name').text(),
+						    address     = doc.find('address').text(),
+						    ph_num      = doc.find('phones').find('number').text(),
+						    ph_type     = doc.find('phones').find('type').text(),
+						    email       = doc.find('email').text(),
+					        company     = doc.find('company').text(),
+						    position    = doc.find('position').text(),
+						    
+						    contactInfo = name + ' ' + address + ' Ph: '+ ph_num + ' ' + ph_type;
+						}     
+										
+						$('#results').append('<p>' + contactInfo + '</p>');
+				}
+
+			
+			});
+			
+		</script>
+	</body>
+</html>

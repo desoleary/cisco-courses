@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>	
+		<style>
+			label { display: block; zoom: 1; }
+			input { float: right; width: 150px; margin: 3px; color: #000077; }
+			form { font: normal 15px Arial; border: 1px solid black; width: 300px; padding: 10px 10px 45px 10px; }
+
+
+		    label, form, .clearfix:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+			label, form, .clearfix { zoom: 1; }
+			
+			input:invalid { background-color: #fcc; }
+			form:invalid  { border: 2px solid red; }
+			
+			input:valid   { background-color: #cfc; }
+			form:valid   { border: 1px solid black; }
+			
+			/* chrome */
+			/* input[type="submit"] { background-color: #ccc; } */
+			
+		</style>
+		
+	</head>
+	<body>
+
+		<h1>Welcome!</h1>
+		<form method="GET" >
+			<label>Name <input type="text" required autofocus placeholder="Enter your name"></input></label>
+			<label>Age <input type="number" required min="0" max="10"></input></label>
+			<label>Current Month <input type="month" min="2012-01" max="2012-12" required></input></label>
+			<label>Email <input type="email" data-allowedDomains="yahoo google"></input></label>
+			<input type="submit" />
+		</form>		
+
+	</body>
+</html>

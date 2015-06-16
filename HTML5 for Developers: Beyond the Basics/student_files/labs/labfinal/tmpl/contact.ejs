@@ -1,0 +1,13 @@
+<ul class="contact">
+   <% if (!this.contactid) { %>
+   <li><%= this.error %></li>
+   <% } else { %>
+   <li><%= this.contactid %></li>
+   <li><%= this.address %></li>
+   <li><%= this.phones[0].number %></li>
+   <li><%= this.phones[0].type %></li>
+   <li><%= this.email %></li>
+   <li><%= this.company %></li>
+   <li><%= this.position %></li>
+   <% } %>
+</ul>
