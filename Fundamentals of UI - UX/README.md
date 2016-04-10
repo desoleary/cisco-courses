@@ -2,9 +2,9 @@
 
 #### Method vs Goal
 
-A `method` application focuses on getting the job done in an efficient manner without any complexity. i.e. ATM application where the user does not want to remember the experience
+A`method` oriented application should focus on getting the job done in an efficient manner without any complexity. i.e. ATM application where the user does not want to remember the experience
 
-A `goal` application focuses on visual design and functionality for a memorable experience i.e. Diablo 3
+A `goal` oriented application should focus on visual design and functionality for a memorable experience i.e. Diablo 3
 
 #### Usability Heuristics
 
